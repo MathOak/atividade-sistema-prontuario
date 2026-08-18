@@ -1,7 +1,5 @@
 <h3>{{ nome }}</h3>
 <p>{{ idade }}</p>
 
-<p>{{ idade | calculaIMC: peso : altura }}</p>
-<button (click)="selecionarPaciente()">  
-    Selecionar {{ nome }}
-</button>
+<p>{{ peso | calculaIMC: altura }}</p>
+<button (click)="selecionarPaciente()">Selecionar {{ nome }}</button>
