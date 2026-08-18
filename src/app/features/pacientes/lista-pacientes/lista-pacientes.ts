@@ -13,4 +13,22 @@ export class ListaPacientes {
   ]);
   listaTriagem = signal<{ nome: string; prioridade: string }[]>([]);
   pacienteAtivo = signal<string | null>(null);
+
+  cadastrarPaciente(novoPaciente: {
+    nome: string;
+    idade: number;
+    peso: number;
+    altura: number;
+    status: string;
+  }) {
+    this.pacientes.update((pacientes) => [...pacientes, novoPaciente]);
+  }
+
+  reiniciarFila() {
+    this.pacientes.set([]);
+  }
+
+  adicionarATriagem(paciente: { nome: string; prioridade: string }) {
+    this.listaTriagem.update((triagem) => [...triagem, paciente]);
+  }
 }
