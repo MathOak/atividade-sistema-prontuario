@@ -12,6 +12,9 @@ export class CardPaciente {
   @Input() idade: number = 0;
   @Output() pacienteSelecionado = new EventEmitter<string>();
 
-  peso = 70;
-  altura = 1.7;
+  selecionarPaciente() {
+    this.pacienteSelecionado.emit(this.nome);
+  }
+  @Input() peso = 70;
+  @Input() altura = 1.7;
 }

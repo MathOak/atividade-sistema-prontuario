@@ -1,1 +1,18 @@
-<p>lista-pacientes works!</p>
+<h2>
+  Paciente Ativo:
+  @if (pacienteAtivo()) {
+    <strong style="color: green">{{ pacienteAtivo() }}</strong>
+  } @else {
+    <span style="color: gray">Nenhum</span>
+  }
+</h2>
+
+@for (item of pacientes(); track $index) {
+  <app-card-paciente
+    [idade]="item.idade"
+    [nome]="item.nome"
+    [peso]="item.peso"
+    [altura]="item.altura"
+    (pacienteSelecionado)="exibirPaciente($event)"
+  ></app-card-paciente>
+}
