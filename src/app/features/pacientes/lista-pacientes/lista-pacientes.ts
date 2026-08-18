@@ -45,6 +45,16 @@ export class ListaPacientes {
   );
   mediaIdade = computed(() => {
     const lista = this.pacientes();
+    /* 
+      if (lista.length > 0) {
+        return Math.round(lista.reduce((totalIdade, p) => totalIdade + p.idade, 0) / lista.length);
+      } else {
+        return 0;
+      } 
+    */
+   /* 
+    Ambas os codigos fazem a mesma coisa, mas o de baixo é comumente
+    usado e recomendado na linguagem do javaScript */
     return lista.length ? Math.round(lista.reduce((acc, p) => acc + p.idade, 0) / lista.length) : 0;
   });
 
