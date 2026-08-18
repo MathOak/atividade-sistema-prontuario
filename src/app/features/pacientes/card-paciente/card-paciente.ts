@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-paciente',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './card-paciente.html',
   styleUrl: './card-paciente.css',
 })
-export class CardPaciente {}
+export class CardPaciente {
+  @Input() nome: string = '';
+  @Input() idade: number = 0;
+  @Output() pacienteSelecionado = new EventEmitter<string>();
+}
