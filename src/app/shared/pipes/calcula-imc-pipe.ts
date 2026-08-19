@@ -8,7 +8,7 @@ export class CalculaIMCPipe implements PipeTransform {
     /* IMC = peso / (altura * altura) */
     const imc = peso / (altura * altura);
 
-    /*  
+    /*
     Menor que 18,5: Abaixo do peso (magreza)
     Entre 18,5 e 24,9: Peso normal (saudável)
     Entre 25,0 e 29,9: Sobrepeso (acima do peso)
@@ -28,18 +28,18 @@ export class CalculaIMCPipe implements PipeTransform {
       imc_texto = 'Abaixo do peso';
     }
 
-    return `${imc} - ${imc_texto}`;
+    return `${imc.toFixed(2)} - ${imc_texto}`;
   }
 
   /* Segunda forma - verificando todos os casos e retornando o resultado direto
-    if (imc >= 30) return `${imc} - Obesidade`;
-    if (imc < 30 && imc >= 25) return `${imc} - Sobrepeso`;
-    if (imc < 25 && imc >= 18.5) return `${imc} - Peso normal`;
-    if (imc < 18.5) return `${imc} - Abaixo do peso`;
+    if (imc >= 30) return `${imc.toFixed(2)} - Obesidade`;
+    if (imc < 30 && imc >= 25) return `${imc.toFixed(2)} - Sobrepeso`;
+    if (imc < 25 && imc >= 18.5) return `${imc.toFixed(2)} - Peso normal`;
+    if (imc < 18.5) return `${imc.toFixed(2)} - Abaixo do peso`;
     */
 
   /* Terceira forma - Verificando todas os casos com if e else e modificando a variavel classificação
-    
+
     let classificacao = '';
     if (imc >= 30) {
       classificacao = 'Obesidade';
@@ -51,6 +51,6 @@ export class CalculaIMCPipe implements PipeTransform {
       classificacao = 'Abaixo do peso';
     }
 
-    return `${imc} - ${classificacao}`;
+    return `${imc.toFixed(2)} - ${classificacao}`;
     */
 }
